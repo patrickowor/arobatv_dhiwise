@@ -1,0 +1,1 @@
+class BuyCoin1Model {}
