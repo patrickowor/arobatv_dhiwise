@@ -611,19 +611,24 @@ class MoviesScreen extends GetWidget<MoviesController> {
                                 child: Stack(children: [
                                   Align(
                                       alignment: Alignment.center,
-                                      child: Padding(
-                                          padding: EdgeInsets.only(
-                                              left: getHorizontalSize(40.00),
-                                              top: getVerticalSize(18.00),
-                                              right: getHorizontalSize(40.00),
-                                              bottom: getVerticalSize(18.00)),
-                                          child: Container(
-                                              height: getVerticalSize(20.00),
-                                              width: getHorizontalSize(16.00),
-                                              child: SvgPicture.asset(
-                                                  ImageConstant
-                                                      .imgNotifications15,
-                                                  fit: BoxFit.fill))))
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          onTapImgNotifications();
+                                        },
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
+                                                left: getHorizontalSize(40.00),
+                                                top: getVerticalSize(18.00),
+                                                right: getHorizontalSize(40.00),
+                                                bottom: getVerticalSize(18.00)),
+                                            child: Container(
+                                                height: getVerticalSize(20.00),
+                                                width: getHorizontalSize(16.00),
+                                                child: SvgPicture.asset(
+                                                    ImageConstant
+                                                        .imgNotifications15,
+                                                    fit: BoxFit.fill))),
+                                      ))
                                 ]))),
                         Align(
                             alignment: Alignment.center,
@@ -698,5 +703,9 @@ class MoviesScreen extends GetWidget<MoviesController> {
 
   onTapImgImage6() {
     Get.toNamed(AppRoutes.profileScreen);
+  }
+
+  onTapImgNotifications() {
+    Get.toNamed(AppRoutes.notificationScreen);
   }
 }

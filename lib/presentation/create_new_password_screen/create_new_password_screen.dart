@@ -85,7 +85,9 @@ class CreateNewPasswordScreen extends GetWidget<CreateNewPasswordController> {
                                                                         onPressed: () {
                                                                           onPressBack();
                                                                         },
-                                                                        constraints: BoxConstraints(minHeight: getSize(41.00), minWidth: getSize(41.00)),
+                                                                        constraints: BoxConstraints(
+                                                                          minHeight: getSize(41.00), 
+                                                                          minWidth: getSize(41.00)),
                                                                         padding: EdgeInsets.all(0),
                                                                         icon: Container(width: getSize(41.00), height: getSize(41.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack16)))),
                                                                 Container(
@@ -199,17 +201,6 @@ class CreateNewPasswordScreen extends GetWidget<CreateNewPasswordController> {
                                                 width:
                                                     getHorizontalSize(356.00),
                                                 fit: BoxFit.fill))),
-                                    Align(
-                                        alignment: Alignment.bottomLeft,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                top: getVerticalSize(10.00),
-                                                bottom: getVerticalSize(7.00)),
-                                            decoration:
-                                                AppDecoration.textstyleregular8,
-                                            child: Text("lbl_m".tr,
-                                                overflow:
-                                                    TextOverflow.ellipsis))),
                                     Align(
                                         alignment: Alignment.center,
                                         child: Padding(

@@ -8,3 +8,8 @@
 !/.flutter-plugins
 .git.zip
 .git
+/android
+/windows
+/linux
+/macos
+/web

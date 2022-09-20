@@ -7,8 +7,10 @@ class ProfileScreen extends GetWidget<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+        //  app scafold
         child: Scaffold(
-            backgroundColor: ColorConstant.gray50,
+            backgroundColor: ColorConstant.gray50, // the bacground color
+
             body: Column(children: [
               Expanded(
                   child: Container(
@@ -35,6 +37,9 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
+                                                  /*
+                                                            start of the settings header widget
+                                                    */
                                                   Container(
                                                       width: size.width,
                                                       child: Container(
@@ -42,10 +47,6 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                               getVerticalSize(
                                                                   56.00),
                                                           width: size.width,
-                                                          margin: EdgeInsets.only(
-                                                              left:
-                                                                  getHorizontalSize(
-                                                                      49.00)),
                                                           child: Stack(
                                                               alignment:
                                                                   Alignment
@@ -60,10 +61,18 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                         width: size.width,
                                                                         decoration: BoxDecoration(color: ColorConstant.gray900),
                                                                         child: Stack(children: [
+                                                                          /*
+                                                                            start of settings icon widget
+                                                                          */
                                                                           Align(
                                                                               alignment: Alignment.centerRight,
                                                                               child: Padding(padding: EdgeInsets.only(left: getHorizontalSize(27.95), top: getVerticalSize(18.00), right: getHorizontalSize(27.95), bottom: getVerticalSize(18.00)), child: Container(height: getVerticalSize(20.00), width: getHorizontalSize(20.10), child: SvgPicture.asset(ImageConstant.imgSettings2, fit: BoxFit.fill))))
+                                                                          /*
+                                                                            end of settings icon widget
+                                                                          */
                                                                         ]))),
+
+                                                                // the header text for profile
                                                                 Align(
                                                                     alignment:
                                                                         Alignment
@@ -86,6 +95,9 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                             textAlign: TextAlign.left,
                                                                             style: AppStyle.textstylerobotomedium202.copyWith(fontSize: getFontSize(20)))))
                                                               ]))),
+                                                  /*
+                                                            end of the settings header widget
+                                                          */
                                                   SingleChildScrollView(
                                                       scrollDirection:
                                                           Axis.horizontal,
@@ -104,27 +116,20 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                     alignment:
                                                                         Alignment
                                                                             .topRight,
+                                                                    // the back ground image container
                                                                     child: Container(
                                                                         width: getHorizontalSize(459.00),
-                                                                        margin: EdgeInsets.only(bottom: getVerticalSize(10.00)),
-                                                                        child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
-                                                                          Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.end,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Padding(padding: EdgeInsets.only(left: getHorizontalSize(153.00)), child: Image.asset(ImageConstant.imgAsset132, height: getSize(153.00), width: getSize(153.00), fit: BoxFit.fill)),
-                                                                                Image.asset(ImageConstant.imgAsset133, height: getSize(153.00), width: getSize(153.00), fit: BoxFit.fill)
-                                                                              ]),
-                                                                          Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.end,
-                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                Padding(padding: EdgeInsets.only(left: getHorizontalSize(153.00)), child: Image.asset(ImageConstant.imgAsset15, height: getSize(153.00), width: getSize(153.00), fit: BoxFit.fill)),
-                                                                                Image.asset(ImageConstant.imgAsset14, height: getSize(153.00), width: getSize(153.00), fit: BoxFit.fill)
-                                                                              ])
-                                                                        ]))),
+                                                                        margin: EdgeInsets.only(bottom: getVerticalSize(100.00)),
+                                                                        decoration: BoxDecoration(
+                                                                          image: DecorationImage(
+                                                                              repeat: ImageRepeat.repeat,
+                                                                              image: AssetImage(
+                                                                                ImageConstant.imgAsset14,
+                                                                              )),
+                                                                        ))),
+                                                                /*
+                                                                    start of the icon, edit, username and fullname widget
+                                                                */
                                                                 Align(
                                                                     alignment:
                                                                         Alignment
@@ -133,7 +138,7 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                         Container(
                                                                             margin: EdgeInsets.only(
                                                                                 left: getHorizontalSize(
-                                                                                    10.00),
+                                                                                    0.00),
                                                                                 top: getVerticalSize(
                                                                                     58.00),
                                                                                 bottom: getVerticalSize(
@@ -154,13 +159,21 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                                   ])),
                                                                               Padding(padding: EdgeInsets.only(left: getHorizontalSize(87.00), top: getVerticalSize(92.75), right: getHorizontalSize(34.72), bottom: getVerticalSize(122.00)), child: Container(height: getVerticalSize(18.25), width: getHorizontalSize(18.28), child: SvgPicture.asset(ImageConstant.imgEdit, fit: BoxFit.fill)))
                                                                             ]))),
+
+                                                                /*
+                                                                    end of the icon, edit, username and fullname widget
+                                                                */
+
+                                                                /*
+                                                                    start of the user about widget
+                                                                */
                                                                 Align(
                                                                     alignment:
                                                                         Alignment
                                                                             .bottomRight,
                                                                     child: Container(
-                                                                        width: getHorizontalSize(
-                                                                            312.00),
+                                                                        width: size
+                                                                            .width,
                                                                         margin: EdgeInsets.only(
                                                                             left: getHorizontalSize(
                                                                                 16.00),
@@ -176,6 +189,9 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                                                             textAlign:
                                                                                 TextAlign.left,
                                                                             style: AppStyle.textstylepoppinsregular141.copyWith(fontSize: getFontSize(14)))))
+                                                                /*
+                                                                    start of the user about widget
+                                                                */
                                                               ]))),
                                                   Align(
                                                       alignment:
@@ -384,19 +400,24 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                 child: Stack(children: [
                                   Align(
                                       alignment: Alignment.center,
-                                      child: Padding(
-                                          padding: EdgeInsets.only(
-                                              left: getHorizontalSize(40.00),
-                                              top: getVerticalSize(18.00),
-                                              right: getHorizontalSize(40.00),
-                                              bottom: getVerticalSize(18.00)),
-                                          child: Container(
-                                              height: getVerticalSize(20.00),
-                                              width: getHorizontalSize(16.00),
-                                              child: SvgPicture.asset(
-                                                  ImageConstant
-                                                      .imgNotifications7,
-                                                  fit: BoxFit.fill))))
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          onTapImgNotifications();
+                                        },
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
+                                                left: getHorizontalSize(40.00),
+                                                top: getVerticalSize(18.00),
+                                                right: getHorizontalSize(40.00),
+                                                bottom: getVerticalSize(18.00)),
+                                            child: Container(
+                                                height: getVerticalSize(20.00),
+                                                width: getHorizontalSize(16.00),
+                                                child: SvgPicture.asset(
+                                                    ImageConstant
+                                                        .imgNotifications7,
+                                                    fit: BoxFit.fill))),
+                                      ))
                                 ]))),
                         Align(
                             alignment: Alignment.center,
@@ -411,16 +432,21 @@ class ProfileScreen extends GetWidget<ProfileController> {
                                         CrossAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              top: getVerticalSize(1.00),
-                                              bottom: getVerticalSize(1.00)),
-                                          child: Container(
-                                              height: getSize(18.00),
-                                              width: getSize(18.00),
-                                              child: SvgPicture.asset(
-                                                  ImageConstant.imgBorderall7,
-                                                  fit: BoxFit.fill))),
+                                      GestureDetector(
+                                        onTap: () {
+                                          onTapImgBorderall();
+                                        },
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
+                                                top: getVerticalSize(1.00),
+                                                bottom: getVerticalSize(1.00)),
+                                            child: Container(
+                                                height: getSize(18.00),
+                                                width: getSize(18.00),
+                                                child: SvgPicture.asset(
+                                                    ImageConstant.imgBorderall7,
+                                                    fit: BoxFit.fill))),
+                                      ),
                                       Container(
                                           height: getSize(20.00),
                                           width: getSize(20.00),
@@ -434,5 +460,13 @@ class ProfileScreen extends GetWidget<ProfileController> {
 
   onTapBtnLogout() {
     Get.toNamed(AppRoutes.welcomeScreen);
+  }
+
+  onTapImgNotifications() {
+    Get.toNamed(AppRoutes.notificationScreen);
+  }
+
+  onTapImgBorderall() {
+    Get.toNamed(AppRoutes.moviesScreen);
   }
 }
