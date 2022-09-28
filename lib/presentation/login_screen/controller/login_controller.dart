@@ -10,6 +10,17 @@ class LoginController extends GetxController {
   Rx<LoginModel> loginModelObj = LoginModel().obs;
 
   @override
+  void onInit() {
+    enteryouremaiController.addListener(() {
+      debugPrint("${enteryouremaiController.text}");
+    });
+    enteryourpassController.addListener(() {
+      debugPrint("${enteryourpassController.text}");
+    });
+    super.onInit();
+  }
+
+  @override
   void onReady() {
     super.onReady();
   }

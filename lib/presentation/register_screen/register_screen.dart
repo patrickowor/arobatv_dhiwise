@@ -82,16 +82,15 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                           MainAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        Padding(
-                                                                            padding:
-                                                                                EdgeInsets.only(left: getHorizontalSize(18.00), right: getHorizontalSize(18.00)),
+                                                                         Padding(
+                                                                            padding: EdgeInsets.only(left: getHorizontalSize(18.00), right: getHorizontalSize(18.00)),
                                                                             child: IconButton(
                                                                                 onPressed: () {
                                                                                   onPressBack();
                                                                                 },
-                                                                                constraints: BoxConstraints(minHeight: getSize(41.00), minWidth: getSize(41.00)),
+                                                                                constraints: BoxConstraints(minHeight: getSize(61.00), minWidth: getSize(61.00)),
                                                                                 padding: EdgeInsets.all(0),
-                                                                                icon: Container(width: getSize(41.00), height: getSize(41.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack15)))),
+                                                                                icon: Container(width: getSize(51.00), height: getSize(51.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack5)))),
                                                                         Align(
                                                                             alignment: Alignment
                                                                                 .centerRight,
@@ -153,7 +152,7 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                       56.00),
                                                                   width:
                                                                       getHorizontalSize(
-                                                                          331.00),
+                                                                          319.00),
                                                                   child: TextFormField(
                                                                       focusNode:
                                                                           FocusNode(),
@@ -406,16 +405,16 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                     left: getHorizontalSize(
                                                         14.00),
                                                     top:
-                                                        getVerticalSize(328.00),
+                                                        getVerticalSize(0.00),
                                                     right: getHorizontalSize(
                                                         14.00),
                                                     bottom: getVerticalSize(
-                                                        328.00)),
+                                                        365.00)),
                                                 child: Container(
                                                     height:
                                                         getVerticalSize(56.00),
                                                     width: getHorizontalSize(
-                                                        331.00),
+                                                        325.00),
                                                     child: TextFormField(
                                                         focusNode: FocusNode(),
                                                         controller: controller

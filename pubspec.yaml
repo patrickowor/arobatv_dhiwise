@@ -1,5 +1,5 @@
 name: arobatv
-description: A new Flutter project.
+description: The aroba tv app.
 version: 1.0.0+1
 environment: 
   sdk: '>=2.12.0'

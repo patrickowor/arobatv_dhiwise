@@ -87,9 +87,9 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
                                                                                 onPressed: () {
                                                                                   onPressBack();
                                                                                 },
-                                                                                constraints: BoxConstraints(minHeight: getSize(41.00), minWidth: getSize(41.00)),
+                                                                                constraints: BoxConstraints(minHeight: getSize(61.00), minWidth: getSize(61.00)),
                                                                                 padding: EdgeInsets.all(0),
-                                                                                icon: Container(width: getSize(41.00), height: getSize(41.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack5))))),
+                                                                                icon: Container(width: getSize(51.00), height: getSize(51.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack5))))),
                                                                     Padding(
                                                                         padding: EdgeInsets.only(
                                                                             top: getVerticalSize(
