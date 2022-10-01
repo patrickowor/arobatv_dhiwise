@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, use_key_in_widget_constructors, avoid_unnecessary_containers
+
 import '../settings_screen/widgets/settings_item_widget.dart';
 import 'controller/settings_controller.dart';
 import 'models/settings_item_model.dart';

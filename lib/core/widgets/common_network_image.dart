@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +13,13 @@ class CommonNetworkImageView extends StatelessWidget {
 
   ///a [CommonNetworkImageView] it can be used for showing any network images
   /// it will shows the placeholder image if image is not found on network
-  CommonNetworkImageView({
+  const CommonNetworkImageView({Key? key, 
     required this.url,
     this.height = 200,
     this.width = 200,
     this.fit = BoxFit.contain,
     this.placeHolder = 'assets/images/image_not_found.png',
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

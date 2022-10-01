@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/buy_coin_1_screen/models/buy_coin_1_model.dart';
 import 'package:flutter/material.dart';

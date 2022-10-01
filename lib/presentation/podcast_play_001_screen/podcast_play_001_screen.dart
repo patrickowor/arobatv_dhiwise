@@ -1,9 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers
+
 import 'controller/podcast_play_001_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PodcastPlay001Screen extends GetWidget<PodcastPlay001Controller> {
+  const PodcastPlay001Screen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

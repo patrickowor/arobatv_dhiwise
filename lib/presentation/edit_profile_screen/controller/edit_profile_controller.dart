@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/edit_profile_screen/models/edit_profile_model.dart';
 import 'package:flutter/material.dart';

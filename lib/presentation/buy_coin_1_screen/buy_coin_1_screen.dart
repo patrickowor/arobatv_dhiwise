@@ -1,9 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'controller/buy_coin_1_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BuyCoin1Screen extends GetWidget<BuyCoin1Controller> {
+  const BuyCoin1Screen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,7 +19,7 @@ class BuyCoin1Screen extends GetWidget<BuyCoin1Controller> {
                       width: size.width,
                       child: SingleChildScrollView(
                           child: Container(
-                              margin: EdgeInsets.only(),
+                              margin: const EdgeInsets.only(),
                               decoration:
                                   BoxDecoration(color: ColorConstant.whiteA700),
                               child: Column(
@@ -70,7 +74,7 @@ class BuyCoin1Screen extends GetWidget<BuyCoin1Controller> {
                                                                             getSize(
                                                                                 41.00)),
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             0),
                                                                     icon: Container(
                                                                         width: getSize(

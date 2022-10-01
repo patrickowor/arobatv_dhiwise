@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, use_key_in_widget_constructors
+
 import 'package:arobatv/presentation/privacy_screen/privacy_screen.dart';
 import 'package:arobatv/presentation/privacy_screen/binding/privacy_binding.dart';
 import 'package:arobatv/presentation/add_card_screen/add_card_screen.dart';

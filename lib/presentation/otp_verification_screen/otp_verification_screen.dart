@@ -1,9 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'controller/otp_verification_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpVerificationScreen extends GetWidget<OtpVerificationController> {
+  const OtpVerificationScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

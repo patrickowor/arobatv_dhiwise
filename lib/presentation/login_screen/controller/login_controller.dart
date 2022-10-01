@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations, unnecessary_overrides
+
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/login_screen/models/login_model.dart';
 import 'package:flutter/material.dart';

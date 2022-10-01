@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import '../controller/settings_controller.dart';
 import '../models/settings_item_model.dart';
 import 'package:arobatv/core/app_export.dart';
@@ -6,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
 class SettingsItemWidget extends StatelessWidget {
-  SettingsItemWidget(this.settingsItemModelObj);
+  SettingsItemWidget(this.settingsItemModelObj, {Key? key}) : super(key: key);
 
   SettingsItemModel settingsItemModelObj;
 

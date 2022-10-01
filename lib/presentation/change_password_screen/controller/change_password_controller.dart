@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/change_password_screen/models/change_password_model.dart';
 import 'package:flutter/material.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers
+
 import '../podcast_screen/widgets/podcast_item_widget.dart';
 import 'controller/podcast_controller.dart';
 import 'models/podcast_item_model.dart';
@@ -6,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PodcastScreen extends GetWidget<PodcastController> {
+  const PodcastScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

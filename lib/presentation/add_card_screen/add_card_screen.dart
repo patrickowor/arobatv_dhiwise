@@ -1,9 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'controller/add_card_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AddCardScreen extends GetWidget<AddCardController> {
+  const AddCardScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,7 +19,7 @@ class AddCardScreen extends GetWidget<AddCardController> {
                       width: size.width,
                       child: SingleChildScrollView(
                           child: Container(
-                              margin: EdgeInsets.only(),
+                              margin: const EdgeInsets.only(),
                               decoration:
                                   BoxDecoration(color: ColorConstant.whiteA700),
                               child: Column(

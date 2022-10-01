@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_overrides
+
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/otp_verification_screen/models/otp_verification_model.dart';
 import 'package:sms_autofill/sms_autofill.dart';

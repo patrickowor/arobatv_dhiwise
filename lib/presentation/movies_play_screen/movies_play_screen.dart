@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, avoid_unnecessary_containers
+
 import 'controller/movies_play_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,8 @@ import 'package:arobatv/presentation/movie_payment_dialog/movie_payment_dialog.d
 import 'package:arobatv/presentation/movie_payment_dialog/controller/movie_payment_controller.dart';
 
 class MoviesPlayScreen extends GetWidget<MoviesPlayController> {
+  const MoviesPlayScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

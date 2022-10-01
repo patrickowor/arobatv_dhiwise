@@ -1,1 +1,3 @@
-class MoviesPlayModel {}
+class MoviesPlayModel {
+  
+}

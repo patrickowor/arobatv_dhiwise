@@ -1,10 +1,12 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'controller/delete_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore_for_file: must_be_immutable
 class DeleteDialog extends StatelessWidget {
-  DeleteDialog(this.controller);
+  DeleteDialog(this.controller, {Key? key}) : super(key: key);
 
   DeleteController controller;
 

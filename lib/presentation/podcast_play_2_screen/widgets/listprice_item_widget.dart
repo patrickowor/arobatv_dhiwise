@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import '../controller/podcast_play_2_controller.dart';
 import '../models/listprice_item_model.dart';
 import 'package:arobatv/core/app_export.dart';
@@ -7,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 // ignore: must_be_immutable
 class ListpriceItemWidget extends StatelessWidget {
   ListpriceItemWidget(this.listpriceItemModelObj,
-      {this.onTapRowprice, this.onTapTxtPlay});
+      {Key? key, this.onTapRowprice, this.onTapTxtPlay}) : super(key: key);
 
   ListpriceItemModel listpriceItemModelObj;
 

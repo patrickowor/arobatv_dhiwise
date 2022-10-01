@@ -1,8 +1,12 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors
+
 import 'controller/create_new_password_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewPasswordScreen extends GetWidget<CreateNewPasswordController> {
+  const CreateNewPasswordScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

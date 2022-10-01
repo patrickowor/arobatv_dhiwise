@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 // For checking internet connectivity

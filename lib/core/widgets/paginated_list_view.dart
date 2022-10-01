@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -11,13 +13,13 @@ class PaginatedListView extends StatelessWidget {
       RefreshController(initialRefresh: false);
 
   ///An common list view with pagination functionalities
-  PaginatedListView({
+  PaginatedListView({Key? key, 
     required this.pageElementCount,
     required this.onRefresh,
     required this.onLoading,
     required this.child,
     required this.noDataWidget,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

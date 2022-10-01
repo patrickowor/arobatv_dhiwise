@@ -1,9 +1,13 @@
+// ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, use_key_in_widget_constructors
+
 import 'controller/buy_coin_3_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BuyCoin3Screen extends GetWidget<BuyCoin3Controller> {
+  const BuyCoin3Screen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -412,6 +416,7 @@ class BuyCoin3Screen extends GetWidget<BuyCoin3Controller> {
                                                       ])))
                                         ]))
                                   ]))))),
+              // ignore: avoid_unnecessary_containers
               Container(
                   child: Container(
                       height: getVerticalSize(56.00),

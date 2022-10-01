@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
 import '../controller/podcast_controller.dart';
 import '../models/podcast_item_model.dart';
 import 'package:arobatv/core/app_export.dart';
@@ -6,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
 class PodcastItemWidget extends StatelessWidget {
-  PodcastItemWidget(this.podcastItemModelObj, {this.onTapRowprice});
+  PodcastItemWidget(this.podcastItemModelObj, {Key? key, this.onTapRowprice}) : super(key: key);
 
   PodcastItemModel podcastItemModelObj;
 

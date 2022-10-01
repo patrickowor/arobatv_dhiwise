@@ -3,6 +3,8 @@ import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 class AppNavigationScreen extends GetWidget<AppNavigationController> {
+  const AppNavigationScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
