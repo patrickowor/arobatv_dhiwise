@@ -18,7 +18,11 @@ class OtpVerificationController extends GetxController with CodeAutoFill {
   @override
   void onInit() {
     super.onInit();
-    listenForCode();
+    try {
+      listenForCode();
+    } catch (e) {
+      debugPrint("auto fill platform error");
+    }
   }
 
   @override

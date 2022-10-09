@@ -3,6 +3,7 @@
 import 'controller/forgot_password_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
+import "package:dio/dio.dart";
 
 class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -115,7 +116,7 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
                                                                             padding: EdgeInsets.only(left: getHorizontalSize(7.12), top: getVerticalSize(32.86), right: getHorizontalSize(6.12), bottom: getVerticalSize(0.00)),
                                                                             child: GestureDetector(
                                                                                 onTap: () {
-                                                                                  onTapBtnSendcode();
+                                                                                  onTapBtnSendcode(context);
                                                                                 },
                                                                                 child: Container(alignment: Alignment.center, height: getVerticalSize(55.17), width: size.width, decoration: AppDecoration.textstyleurbanistromansemibold15, child: Text("lbl_send_code".tr, textAlign: TextAlign.center, style: AppStyle.textstyleurbanistromansemibold15.copyWith(fontSize: getFontSize(15)))))))
                                                                   ])))
@@ -240,8 +241,34 @@ class ForgotPasswordScreen extends GetWidget<ForgotPasswordController> {
     Get.toNamed(AppRoutes.registerScreen);
   }
 
-  onTapBtnSendcode() {
-    Get.toNamed(AppRoutes.otpVerificationScreen);
+  onTapBtnSendcode(BuildContext context) async {
+    if (controller.enteryouremaiController.text != "") {
+      try {
+        var queryResponse = await Dio().post("$baseUrl/password/forgot",
+            data: {"email": controller.enteryouremaiController.text});
+
+        
+        if (queryResponse.data["status"].toLowerCase() == "ok") {
+          controller.forgotPasswordModelObj.value.updateData(queryResponse.data["message"], mail: controller.enteryouremaiController.text);
+          Get.toNamed(AppRoutes.otpVerificationScreen);
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                title: Text(queryResponse.data["message"],
+                    style: TextStyle(color: Colors.red))),
+          );
+        }
+      } catch (e) {
+
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+              title: Text("error occourred while connecting to server",
+                  style: TextStyle(color: Colors.red))),
+        );
+      }
+    }
   }
 
   onTapTxtRememberpasswo() {

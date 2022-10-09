@@ -4,6 +4,7 @@ import 'controller/login_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import "package:dio/dio.dart";
 
 class LoginScreen extends GetWidget<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
@@ -106,11 +107,24 @@ class LoginScreen extends GetWidget<LoginController> {
                                                                         Padding(
                                                                             padding:
                                                                                 EdgeInsets.only(top: getVerticalSize(15.00)),
-                                                                            child: Container(height: getVerticalSize(56.00), width: getHorizontalSize(331.00), child: TextFormField(focusNode: FocusNode(), controller: controller.enteryouremaiController, decoration: InputDecoration(hintText: "msg_enter_your_emai".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)))),
+                                                                            child: Container(height: getVerticalSize(70.00), width: getHorizontalSize(331.00), child: Obx(() => TextFormField(focusNode: FocusNode(), controller: controller.enteryouremaiController,
+                                                                            
+                                                                             decoration: InputDecoration(hintText: "msg_enter_your_emai".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), 
+                                                                            errorText: controller.emailstate.value == "null" ? null : "", labelText: controller.emailstate.value == "null" ? null : controller.emailstate.value,                                                                          
+                                                                              focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1), gapPadding: 10), errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1),gapPadding: 10),                                                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500))))),
                                                                         Padding(
                                                                             padding:
                                                                                 EdgeInsets.only(top: getVerticalSize(15.00)),
-                                                                            child: Container(height: getVerticalSize(56.00), width: getHorizontalSize(331.00), child: TextFormField(focusNode: FocusNode(), controller: controller.enteryourpassController, obscureText: true, decoration: InputDecoration(hintText: "msg_enter_your_pass".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), suffixIcon: Container(margin: EdgeInsets.only(left: getHorizontalSize(30.00), top: getVerticalSize(22.31), right: getHorizontalSize(18.20), bottom: getVerticalSize(22.31)), child: Container(height: getSize(11.38), width: getSize(17.60), child: SvgPicture.asset(ImageConstant.imgVector6, fit: BoxFit.fill))), suffixIconConstraints: BoxConstraints(minWidth: getSize(11.38), minHeight: getSize(11.38)), filled: true, fillColor: ColorConstant.gray102, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)))),
+                                                                            child: Container(height: getVerticalSize(56.00), width: getHorizontalSize(331.00), child: Obx(
+                                                                              () => TextFormField(focusNode: FocusNode(), controller: controller.enteryourpassController, 
+                                                                              obscureText: !controller.showpassword.value, decoration: InputDecoration(hintText: "msg_enter_your_pass".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), suffixIcon: 
+                                                                              GestureDetector(
+                                                                                onTap: () {
+                                                                                  controller.showpassword.value = !controller.showpassword.value;
+                                                                            
+                                                                                },
+                                                                                child: Container(margin: EdgeInsets.only(left: getHorizontalSize(30.00), top: getVerticalSize(22.31), right: getHorizontalSize(18.20), bottom: getVerticalSize(22.31)), child: Container(height: getSize(11.38), width: getSize(17.60), child: SvgPicture.asset(ImageConstant.imgVector6, fit: BoxFit.fill)))), suffixIconConstraints: BoxConstraints(minWidth: getSize(11.38), minHeight: getSize(11.38)), filled: true, fillColor: ColorConstant.gray102, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)),
+                                                                            ))),
                                                                         Align(
                                                                             alignment:
                                                                                 Alignment.centerRight,
@@ -166,7 +180,7 @@ class LoginScreen extends GetWidget<LoginController> {
                                                                       GestureDetector(
                                                                           onTap:
                                                                               () {
-                                                                            onTapBtnLogin();
+                                                                            onTapBtnLogin(context);
                                                                           },
                                                                           child: Container(
                                                                               alignment: Alignment.center,
@@ -397,11 +411,40 @@ class LoginScreen extends GetWidget<LoginController> {
     Get.toNamed(AppRoutes.forgotPasswordScreen);
   }
 
-  onTapBtnLogin() {
-    Get.toNamed(AppRoutes.moviesScreen);
+  onTapBtnLogin(BuildContext context) async {
+    if(controller.emailBoolstate.value && controller.enteryourpassController.text != "" ){
+    try {
+      var queryResponse = await Dio().post("$baseUrl/login", data: {
+            "password" : controller.enteryourpassController.text,
+            "email" : controller.enteryouremaiController.text
+      });
+      if(queryResponse.data["status"].toLowerCase() == "ok"){
+      controller.loginModelObj.value.updateData(queryResponse.data["message"]);
+        Get.toNamed(AppRoutes.moviesScreen);
+      } else {
+        showDialog(
+            context:  context,
+            builder: (context) => AlertDialog(
+              title : Text(queryResponse.data["message"],
+              style: TextStyle(color: Colors.red)
+              )
+            ) ,  
+          );
+        }
+     } catch (e) {
+         showDialog(
+            context:  context,
+            builder: (context) => AlertDialog(
+              title : Text("error occourred while connecting to server",
+              style: TextStyle(color: Colors.red)
+              )
+            ) ,  
+          );
+    } 
   }
+}
 
-  onTapTxtDonthaveana() {
+onTapTxtDonthaveana() {
     Get.toNamed(AppRoutes.registerScreen);
   }
 }

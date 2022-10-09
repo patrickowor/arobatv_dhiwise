@@ -4,6 +4,7 @@ import 'controller/otp_verification_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:arobatv/presentation/forgot_password_screen/controller/forgot_password_controller.dart';
 
 class OtpVerificationScreen extends GetWidget<OtpVerificationController> {
   const OtpVerificationScreen({Key? key}) : super(key: key);
@@ -122,7 +123,7 @@ class OtpVerificationScreen extends GetWidget<OtpVerificationController> {
                                                                               padding: EdgeInsets.only(left: getHorizontalSize(7.12), top: getVerticalSize(37.80), right: getHorizontalSize(6.12), bottom: getVerticalSize(0.00)),
                                                                               child: GestureDetector(
                                                                                   onTap: () {
-                                                                                    onTapBtnVerify();
+                                                                                    onTapBtnVerify(context);
                                                                                   },
                                                                                   child: Container(alignment: Alignment.center, height: getVerticalSize(55.17), width: size.width, decoration: AppDecoration.textstyleurbanistromansemibold15, child: Text("lbl_verify".tr, textAlign: TextAlign.center, style: AppStyle.textstyleurbanistromansemibold15.copyWith(fontSize: getFontSize(15)))))))
                                                                     ])))
@@ -200,21 +201,58 @@ class OtpVerificationScreen extends GetWidget<OtpVerificationController> {
                                         ]))),
                             Align(
                                 alignment: Alignment.topLeft,
-                                child:  Padding(
-                                                                            padding: EdgeInsets.only(left: getHorizontalSize(18.00), right: getHorizontalSize(18.00)),
-                                                                            child: IconButton(
-                                                                                onPressed: () {
-                                                                                  onPressBack();
-                                                                                },
-                                                                                constraints: BoxConstraints(minHeight: getSize(61.00), minWidth: getSize(61.00)),
-                                                                                padding: EdgeInsets.all(0),
-                                                                                icon: Container(width: getSize(51.00), height: getSize(51.00), decoration: BoxDecoration(color: ColorConstant.whiteA700, borderRadius: BorderRadius.circular(getHorizontalSize(12.00)), border: Border.all(color: ColorConstant.indigo50, width: getHorizontalSize(1.00))), padding: EdgeInsets.only(left: getHorizontalSize(12.06), top: getVerticalSize(12.06), right: getHorizontalSize(12.06), bottom: getVerticalSize(12.06)), child: Image.asset(ImageConstant.imgBack5)))))
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        left: getHorizontalSize(18.00),
+                                        right: getHorizontalSize(18.00)),
+                                    child: IconButton(
+                                        onPressed: () {
+                                          onPressBack();
+                                        },
+                                        constraints: BoxConstraints(
+                                            minHeight: getSize(61.00),
+                                            minWidth: getSize(61.00)),
+                                        padding: EdgeInsets.all(0),
+                                        icon: Container(
+                                            width: getSize(51.00),
+                                            height: getSize(51.00),
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.whiteA700,
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        getHorizontalSize(
+                                                            12.00)),
+                                                border: Border.all(
+                                                    color:
+                                                        ColorConstant.indigo50,
+                                                    width: getHorizontalSize(
+                                                        1.00))),
+                                            padding: EdgeInsets.only(
+                                                left: getHorizontalSize(12.06),
+                                                top: getVerticalSize(12.06),
+                                                right: getHorizontalSize(12.06),
+                                                bottom: getVerticalSize(12.06)),
+                                            child: Image.asset(
+                                                ImageConstant.imgBack5)))))
                           ])))
                 ]))));
   }
 
-  onTapBtnVerify() {
-    Get.toNamed(AppRoutes.createNewPasswordScreen);
+  onTapBtnVerify(BuildContext context) {
+    int? otp = Get.find<ForgotPasswordController>().otp;
+    debugPrint("$otp, ${controller.otpController.value.text}");
+    if (otp.toString().trim() == controller.otpController.value.text.trim()) {
+      Get.toNamed(AppRoutes.createNewPasswordScreen);
+    } else {
+      showDialog(
+            context:  context,
+            builder: (context) => AlertDialog(
+              title : Text("incorrect pin. please try again",
+              style: TextStyle(color: Colors.red)
+              )
+            ) ,  
+          );
+    }
   }
 
   onTapTxtDidntreceived() {

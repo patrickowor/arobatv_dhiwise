@@ -1,13 +1,16 @@
 // ignore_for_file: sized_box_for_whitespace, prefer_const_constructors, use_key_in_widget_constructors
-
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'controller/register_controller.dart';
 import 'package:arobatv/core/app_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import "package:dio/dio.dart";
 
 class RegisterScreen extends GetWidget<RegisterController> {
+
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
         child: Scaffold(
             backgroundColor: ColorConstant.whiteA700,
@@ -84,8 +87,9 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                           MainAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                         Padding(
-                                                                            padding: EdgeInsets.only(left: getHorizontalSize(18.00), right: getHorizontalSize(18.00)),
+                                                                        Padding(
+                                                                            padding:
+                                                                                EdgeInsets.only(left: getHorizontalSize(18.00), right: getHorizontalSize(18.00)),
                                                                             child: IconButton(
                                                                                 onPressed: () {
                                                                                   onPressBack();
@@ -103,11 +107,21 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                         Padding(
                                                                             padding:
                                                                                 EdgeInsets.only(top: getVerticalSize(31.00), right: getHorizontalSize(6.00)),
-                                                                            child: Container(height: getVerticalSize(56.00), width: getHorizontalSize(331.00), child: TextFormField(focusNode: FocusNode(), controller: controller.usernameInputController, decoration: InputDecoration(hintText: "lbl_username".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)))),
+                                                                            child: Container(
+                                                                                height: getVerticalSize(70.00),
+                                                                                width: getHorizontalSize(331.00),
+                                                                                child: Obx(
+                                                                                  () => TextFormField(focusNode: FocusNode(), controller: controller.usernameInputController, decoration: InputDecoration(hintText: "lbl_username".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), errorText: controller.usernamestate.value == "" ? null : "", labelText: controller.usernamestate.value == "" ? null : controller.usernamestate.value, errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1)), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)),
+                                                                                ))),
                                                                         Padding(
                                                                             padding:
-                                                                                EdgeInsets.only(top: getVerticalSize(12.00), right: getHorizontalSize(6.00)),
-                                                                            child: Container(height: getVerticalSize(56.00), width: getHorizontalSize(331.00), child: TextFormField(focusNode: FocusNode(), controller: controller.emailInputController, decoration: InputDecoration(hintText: "lbl_email".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500))))
+                                                                                EdgeInsets.only(top: getVerticalSize(0.00), right: getHorizontalSize(8.00)),
+                                                                            child: Container(
+                                                                                height: getVerticalSize(70.00),
+                                                                                width: getHorizontalSize(331.00),
+                                                                                child: Obx(
+                                                                                  () => TextFormField(focusNode: FocusNode(), controller: controller.emailInputController, decoration: InputDecoration(hintText: "lbl_email".tr, hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400), errorText: controller.emailstate.value == "null" ? null : "", labelText: controller.emailstate.value == "null" ? null : controller.emailstate.value, focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1)), errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1)), enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)), filled: true, fillColor: ColorConstant.gray51, isDense: true, contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))), style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)),
+                                                                                )))
                                                                       ])))
                                                         ]))),
                                             Align(
@@ -139,8 +153,9 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                       .fill)),
                                                           Padding(
                                                               padding: EdgeInsets.only(
-                                                                  left: getHorizontalSize(
-                                                                      14.00),
+                                                                  left:
+                                                                      getHorizontalSize(
+                                                                          10.00),
                                                                   top: getVerticalSize(
                                                                       29.00),
                                                                   right:
@@ -150,33 +165,42 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                                       getVerticalSize(
                                                                           29.00)),
                                                               child: Container(
-                                                                  height: getVerticalSize(
-                                                                      56.00),
+                                                                  height:
+                                                                      getVerticalSize(
+                                                                          70.00),
                                                                   width:
                                                                       getHorizontalSize(
                                                                           319.00),
-                                                                  child: TextFormField(
-                                                                      focusNode:
-                                                                          FocusNode(),
-                                                                      controller:
-                                                                          controller
-                                                                              .confirmpassworController,
-                                                                      obscureText:
-                                                                          true,
-                                                                      decoration: InputDecoration(
-                                                                          hintText: "msg_confirm_passwor2"
-                                                                              .tr,
-                                                                          hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(
-                                                                              fontSize: getFontSize(15.0),
-                                                                              color: ColorConstant.bluegray400),
-                                                                          enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
-                                                                          focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
-                                                                          disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
-                                                                          filled: true,
-                                                                          fillColor: ColorConstant.gray102,
-                                                                          isDense: true,
-                                                                          contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))),
-                                                                      style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500))))
+                                                                  child: Obx(
+                                                                    () => TextFormField(
+                                                                        onChanged: (_) =>     controller.confirmpass.value = controller.passwordInputController.text == controller.confirmpassworController.text,
+                                                                        
+                                                                        focusNode:
+                                                                            FocusNode(),
+                                                                        controller:
+                                                                            controller
+                                                                                .confirmpassworController,
+                                                                        obscureText:
+                                                                            true,
+                                                                        decoration: InputDecoration(
+                                                                            hintText: "msg_confirm_passwor2"
+                                                                                .tr,
+                                                                            labelText: controller.confirmpass.value == true
+                                                                                ? null
+                                                                                : "invalid password".obs.value,
+                                                                            errorText: controller.confirmpass.value == true ? null : "",
+                                                                            hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(fontSize: getFontSize(15.0), color: ColorConstant.bluegray400),
+                                                                            errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
+                                                                            focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: Colors.red, width: 1)),
+                                                                            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
+                                                                            focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
+                                                                            disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
+                                                                            filled: true,
+                                                                            fillColor: ColorConstant.gray102,
+                                                                            isDense: true,
+                                                                            contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))),
+                                                                        style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)),
+                                                                  )))
                                                         ]))),
                                             Align(
                                                 alignment:
@@ -381,7 +405,7 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                             222.59)),
                                                     child: GestureDetector(
                                                         onTap: () {
-                                                          onTapBtnRegister();
+                                                          onTapBtnRegister(context);
                                                         },
                                                         child: Container(
                                                             alignment: Alignment
@@ -406,8 +430,7 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                 padding: EdgeInsets.only(
                                                     left: getHorizontalSize(
                                                         14.00),
-                                                    top:
-                                                        getVerticalSize(0.00),
+                                                    top: getVerticalSize(0.00),
                                                     right: getHorizontalSize(
                                                         14.00),
                                                     bottom: getVerticalSize(
@@ -418,6 +441,15 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                     width: getHorizontalSize(
                                                         325.00),
                                                     child: TextFormField(
+                                                      onChanged: (_) =>     controller.confirmpass.value = controller.passwordInputController.text == controller.confirmpassworController.text,
+                                                        onTap: () {
+                                                          controller
+                                                                  .passwordDisplayState
+                                                                  .value =
+                                                              !controller
+                                                                  .passwordDisplayState
+                                                                  .value;
+                                                        },
                                                         focusNode: FocusNode(),
                                                         controller: controller
                                                             .passwordInputController,
@@ -425,34 +457,111 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                                         decoration: InputDecoration(
                                                             hintText: "lbl_password"
                                                                 .tr,
-                                                            hintStyle: AppStyle.textstyleurbanistromanmedium15.copyWith(
-                                                                fontSize:
-                                                                    getFontSize(
-                                                                        15.0),
-                                                                color: ColorConstant
-                                                                    .bluegray400),
-                                                            enabledBorder:
-                                                                OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
+                                                            hintStyle: AppStyle
+                                                                .textstyleurbanistromanmedium15
+                                                                .copyWith(
+                                                                    fontSize:
+                                                                        getFontSize(
+                                                                            15.0),
+                                                                    color: ColorConstant
+                                                                        .bluegray400),
+                                                            enabledBorder: OutlineInputBorder(
+                                                                borderRadius:
+                                                                    BorderRadius.circular(getHorizontalSize(8.00)),
+                                                                borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
                                                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
                                                             disabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(getHorizontalSize(8.00)), borderSide: BorderSide(color: ColorConstant.indigo50, width: 1)),
                                                             filled: true,
                                                             fillColor: ColorConstant.gray102,
                                                             isDense: true,
                                                             contentPadding: EdgeInsets.only(left: getHorizontalSize(18.00), top: getVerticalSize(18.25), right: getHorizontalSize(30.00), bottom: getVerticalSize(19.00))),
-                                                        style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500))))
+                                                        style: TextStyle(color: ColorConstant.bluegray400, fontSize: getFontSize(15.0), fontFamily: 'Urbanist', fontWeight: FontWeight.w500)))),
+                                            Obx(() => controller.passwordState
+                                                            .value ==
+                                                        false &&
+                                                    controller
+                                                            .passwordDisplayState
+                                                            .value ==
+                                                        true
+                                                ? Container(
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height /
+                                                            3.4,
+                                                    color: Colors.white,
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child: Center(
+                                                      child: FlutterPwValidator(
+                                                        controller: controller
+                                                            .passwordInputController,
+                                                        minLength: 6,
+                                                        uppercaseCharCount: 2,
+                                                        numericCharCount: 3,
+                                                        specialCharCount: 1,
+                                                        width: 400,
+                                                        height: 150,
+                                                        onSuccess: () =>
+                                                            controller
+                                                                .passwordState
+                                                                .value = true,
+                                                        onFail: () => controller
+                                                            .passwordState
+                                                            .value = false,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Text(""))
                                           ])))
                             ]))))));
   }
 
   onPressBack() {
-    Get.toNamed(AppRoutes.loginScreen);
+    Get.toNamed(AppRoutes.welcomeScreen);
   }
 
   onTapTxtAlreadyhavean() {
     Get.toNamed(AppRoutes.loginScreen);
   }
 
-  onTapBtnRegister() {
-    Get.toNamed(AppRoutes.loginScreen);
+  onTapBtnRegister(BuildContext context) async {
+    
+    if (controller.passwordState.value &&
+        controller.emailBoolstate.value &&
+        controller.usernameBoolstate.value &&
+        controller.confirmpass.value) {      
+      try {    
+      var queryResponse = await Dio().post("$baseUrl/signup", data: {
+            "username" : controller.usernameInputController.text,
+            "password" : controller.passwordInputController.text,
+            "email" : controller.emailInputController.text
+      });
+        if(queryResponse.data["status"].toLowerCase() == "ok"){
+            controller.registerModelObj.value.updateData(queryResponse.data["message"]);
+             Get.toNamed(AppRoutes.moviesScreen);
+        } else {
+          showDialog(
+            context:  context,
+            builder: (context) => AlertDialog(
+              title : Text(queryResponse.data["message"],
+              style: TextStyle(color: Colors.red)
+              )
+            ) ,  
+          );
+        }
+      } catch (e) {
+         showDialog(
+            context:  context,
+            builder: (context) => AlertDialog(
+              title : Text("error occourred while connecting to server",
+              style: TextStyle(color: Colors.red)
+              )
+            ) ,  
+          );
+      }
+      
+     
+    }
   }
 }

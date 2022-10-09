@@ -11,9 +11,15 @@ class CreateNewPasswordController extends GetxController {
 
   Rx<CreateNewPasswordModel> createNewPasswordModelObj =
       CreateNewPasswordModel().obs;
+   RxBool confirmpass = false.obs;
+    RxBool passwordState = false.obs;
 
   @override
   void onReady() {
+    confirmPassworController.addListener(() {
+    confirmpass.value =
+          newPasswordIController.text == confirmPassworController.text;
+    });
     super.onReady();
   }
 

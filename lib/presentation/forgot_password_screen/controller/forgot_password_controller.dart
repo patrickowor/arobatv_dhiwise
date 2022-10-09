@@ -9,6 +9,8 @@ class ForgotPasswordController extends GetxController {
 
   Rx<ForgotPasswordModel> forgotPasswordModelObj = ForgotPasswordModel().obs;
 
+  int? get otp => forgotPasswordModelObj.value.otp;
+  String? get email => forgotPasswordModelObj.value.email;
   @override
   void onReady() {
     super.onReady();

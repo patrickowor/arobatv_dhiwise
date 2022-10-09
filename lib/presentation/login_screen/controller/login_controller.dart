@@ -3,19 +3,32 @@
 import '/core/app_export.dart';
 import 'package:arobatv/presentation/login_screen/models/login_model.dart';
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginController extends GetxController {
+  Rx<LoginModel> loginModelObj = LoginModel().obs;
+
   TextEditingController enteryouremaiController = TextEditingController();
 
   TextEditingController enteryourpassController = TextEditingController();
+  RxBool emailBoolstate = false.obs;
+  RxString emailstate = "null".obs;
 
-  Rx<LoginModel> loginModelObj = LoginModel().obs;
+  RxBool showpassword = false.obs;
+
 
   @override
   void onInit() {
     enteryouremaiController.addListener(() {
-      debugPrint("${enteryouremaiController.text}");
+      if (EmailValidator.validate(enteryouremaiController.text)) {
+        emailstate.value = "null";
+        emailBoolstate.value = true;
+      } else {
+        emailstate.value = "invalid email";
+        emailBoolstate.value = false;
+      }
     });
+
     enteryourpassController.addListener(() {
       debugPrint("${enteryourpassController.text}");
     });

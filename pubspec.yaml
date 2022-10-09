@@ -9,6 +9,9 @@ dependencies:
   get: ^4.6.1
   pull_to_refresh: ^2.0.0
   cupertino_icons: ^1.0.0
+  email_validator: '^2.1.16'
+  dio : 
+  flutter_pw_validator: ^1.2.1
   connectivity_plus: ^2.3.7
   shared_preferences: ^2.0.7
   cached_network_image: ^3.1.0
