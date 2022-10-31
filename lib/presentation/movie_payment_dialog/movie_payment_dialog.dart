@@ -21,7 +21,7 @@ class MoviePaymentDialog extends StatelessWidget {
               width: double.infinity,
               margin: EdgeInsets.only(
                   left: getHorizontalSize(10.00),
-                  top: getVerticalSize(176.00),
+                  top: getVerticalSize(0.00),
                   right: getHorizontalSize(10.00),
                   bottom: getVerticalSize(20.00)),
               decoration: BoxDecoration(
@@ -33,23 +33,13 @@ class MoviePaymentDialog extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                        padding: EdgeInsets.only(
-                            left: getHorizontalSize(36.00),
-                            top: getVerticalSize(26.00),
-                            right: getHorizontalSize(36.00)),
-                        child: Text("lbl_back".tr,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.left,
-                            style: AppStyle.textstyleurbanistromanmedium12
-                                .copyWith(fontSize: getFontSize(12)))),
                     Align(
                         alignment: Alignment.center,
                         child: Container(
                             width: getHorizontalSize(212.00),
                             margin: EdgeInsets.only(
                                 left: getHorizontalSize(36.00),
-                                top: getVerticalSize(41.00),
+                                top: getVerticalSize(21.00),
                                 right: getHorizontalSize(36.00)),
                             child: RichText(
                                 text: TextSpan(children: [
@@ -128,10 +118,11 @@ class MoviePaymentDialog extends StatelessWidget {
   }
 
   onTapBtnYes() {
-    Get.toNamed(AppRoutes.moviesPlayScreen);
+    //  todo : try to buy the movie if not go to coin wallet
+    // Get.toNamed(AppRoutes.paymentScreen);
   }
 
   onTapBtnCancel() {
-    Get.toNamed(AppRoutes.moviesPlayScreen);
+    Get.back();
   }
 }

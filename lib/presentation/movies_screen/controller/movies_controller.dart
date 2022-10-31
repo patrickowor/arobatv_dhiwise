@@ -9,8 +9,27 @@ class MoviesController extends GetxController {
 
   Rx<MoviesModel> moviesModelObj = MoviesModel().obs;
   RxList<dynamic> newReleseList = [].obs;
-  RxMap topMovie =  {"image" : "https://www.bing.com/th?id=OIP.cDJUyVA2dqS8aZuSlggTVQHaD4&w=199&h=104&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"}.obs;
+  RxMap topMovie = {
+      "image":
+          "https://www.bing.com/th?id=OIP.cDJUyVA2dqS8aZuSlggTVQHaD4&w=199&h=104&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+          "title" : "moremi hvvfghsvyhvhjvhvhdvhbvhjvjhfvbjhsvhjvfhvjsd",
+          "url" : 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+          "info" : "hvvfghsvyhvhjvhvhdvhbvhjvjhfvbjhsvhjvfhvjsd",
+  }.obs;
   RxList<dynamic> newSeriesList = [].obs;
+  RxList<dynamic> movieSearchList = [].obs;
+
+  void search(movieName) async {
+    movieSearchList.value = []; // cumpulsary clear data from old search 
+    await Future.delayed(const Duration(seconds: 3));
+    movieSearchList.add({
+      "image":
+          "https://bing.com/th?id=OIP.cDJUyVA2dqS8aZuSlggTVQHaD4&w=199&h=104&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+          "title" : "moremijbjkbkvjdbbjbjkfbhkjfvbkjdfbdfkjbvfkjbkjffbbkjbdvfkjbdfkjbfbdkjbgdkbbdfkjbdbgfkjfg",
+          "info" : "hvvfghsvyhvhjvhvhdvhbvhjvjhfvbjhsvhjvfhvjsd",
+          "url" : 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'
+    });
+  }
 
   @override
   void onReady() {
